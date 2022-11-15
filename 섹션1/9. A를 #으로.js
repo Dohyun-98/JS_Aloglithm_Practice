@@ -11,7 +11,7 @@ console.log(solution(str));
 
 function solution2(s) {
   let answer = s;
-  answer = answer.replaceAll("A", "#");
+  answer = answer.replace(/A/g, "#");
   return answer;
 }
 

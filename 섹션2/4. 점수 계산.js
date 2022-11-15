@@ -1,12 +1,14 @@
 function solution(arr) {
-  let answer = 0,
-    cnt = 0;
-  for (let x of arr) {
-    if (x === 1) {
-      cnt++;
-      answer += cnt;
-    } else cnt = 0;
-  }
+  let answer = 0;
+  let count = 0;
+  arr.forEach((el, i) => {
+    if (el === 1) {
+      count++;
+      answer += count;
+    } else if (el === 0) {
+      count = 0;
+    }
+  });
 
   return answer;
 }

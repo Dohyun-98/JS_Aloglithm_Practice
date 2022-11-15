@@ -19,20 +19,14 @@ function solution(s, t) {
     else sH.set(s[i], 1);
   }
   let lt = 0;
-  for (rt = len; rt < s.length; rt++) {
-    // 추가
+  for (let rt = len; rt < s.length; rt++) {
     if (sH.has(s[rt])) sH.set(s[rt], sH.get(s[rt]) + 1);
     else sH.set(s[rt], 1);
-    // 비교
-    if (compareMaps(sH, tH)) {
-      answer++;
-    }
-    // 빼기
+    if (compareMaps(sH, tH)) answer++;
     sH.set(s[lt], sH.get(s[lt]) - 1);
-    if (sH.get(s[lt] === 0)) sH.delete(s[lt]);
+    if (sH.get(s[lt]) === 0) sH.delete(s[lt]);
     lt++;
   }
-
   return answer;
 }
 

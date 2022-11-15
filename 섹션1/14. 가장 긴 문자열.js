@@ -2,7 +2,7 @@ function solution(s) {
   let answer = "";
   let max = 0;
   for (el of s) {
-    if (el.length >= max) {
+    if (el.length > max) {
       answer = el;
       max = el.length;
     }

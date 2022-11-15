@@ -1,22 +1,26 @@
 function solution(arr) {
-  let answer = Number.MIN_SAFE_INTEGER;
-  let n = arr.length;
-  let sum1 = (sum2 = 0);
+  const n = arr.length;
+  const m = arr[0].length;
+  // 총합의 합을 넣을 배열을 하나 만든다.
+  const sumArr = [];
+  // 각 열의 합, 행의 합을 구하여 배열에 넣는다.
   for (let i = 0; i < n; i++) {
-    sum1 = sum2 = 0;
-    for (let j = 0; j < n; j++) {
-      sum1 += arr[i][j];
-      sum2 += arr[j][i];
+    let sum = 0;
+    for (let j = 0; j < m; j++) {
+      sum += arr[i][j];
     }
-    answer = Math.max(answer, sum1, sum2);
+    sumArr.push(sum);
   }
-  sum1 = sum2 = 0;
-  for (let i = 0; i < n; i++) {
-    sum1 += arr[i][i];
-    sum2 += arr[i][n - i - 1];
+
+  for (let i = 0; i < m; i++) {
+    let sum = 0;
+    for (let j = 0; j < n; j++) {
+      sum += arr[j][i];
+    }
+    sumArr.push(sum);
   }
-  answer = Math.max(answer, sum1, sum2);
-  return answer;
+  // 최대값을 리턴한다.
+  return Math.max(...sumArr);
 }
 
 let arr = [

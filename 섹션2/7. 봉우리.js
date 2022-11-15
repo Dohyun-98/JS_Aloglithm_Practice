@@ -1,11 +1,13 @@
 function solution(arr) {
   let answer = 0;
-  let n = arr.length;
-  let dx = [-1, 0, 1, 0];
-  let dy = [0, 1, 0, -1];
+  const n = arr.length;
+  const dx = [-1, 0, 1, 0];
+  const dy = [0, 1, 0, -1];
+
   for (let i = 0; i < n; i++) {
     for (let j = 0; j < n; j++) {
-      let flag = 1;
+      // 이차원 배열 탐색
+      let flag = true;
       for (let k = 0; k < 4; k++) {
         let nx = i + dx[k];
         let ny = j + dy[k];
@@ -16,14 +18,15 @@ function solution(arr) {
           ny < n &&
           arr[nx][ny] >= arr[i][j]
         ) {
-          flag = 0;
+          flag = false;
           break;
         }
       }
-      if (flag) answer++;
+      if (flag) {
+        answer++;
+      }
     }
   }
-
   return answer;
 }
 

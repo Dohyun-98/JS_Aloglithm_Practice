@@ -1,17 +1,16 @@
 function solution(arr) {
-  let answer = [];
+  let answer = 0;
   let current = 0;
   arr.forEach((el, i) => {
     if (answer.length == 0) {
       current = el;
-      answer.push(el);
+      answer++;
     } else if (current < el) {
       current = el;
-      answer.push(el);
+      answer++;
     }
   });
-  console.log(answer);
-  return answer.length;
+  return answer;
 }
 
 let arr = [130, 135, 148, 140, 145, 150, 150, 153];

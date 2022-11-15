@@ -9,7 +9,7 @@ function solution(s) {
   //     }
   //   });
   // 메서드 toUpperCase()를 이용해서 출력
-  answer = s.toUpperCase();
+  // answer = s.toUpperCase();
   return answer;
 }
 
