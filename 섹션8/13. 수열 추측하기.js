@@ -1,9 +1,13 @@
 function solution(n, f) {
-  let answer,
-    flag = 0;
+  let answer;
+  let flag = 0;
+  // 메모이제이션
   let dy = Array.from(Array(11), () => Array(11).fill(0));
+  // 순열 체크 배열
   let ch = Array.from({ length: n + 1 }, () => 0);
+  // 순열 저장 배열
   let p = Array.from({ length: n }, () => 0);
+  // 조합수
   let b = Array.from({ length: n }, () => 0);
   function combi(n, r) {
     if (dy[n][r] > 0) return dy[n][r];
